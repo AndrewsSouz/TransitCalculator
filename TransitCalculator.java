@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 package transitcalculator;
 
 public class TransitCalculator {
@@ -55,8 +55,12 @@ public class TransitCalculator {
     }
    
     public static void main(String[] args) {
-        
-        TransitCalculator test = new TransitCalculator(20, 70);
+       
+	Scanner scanner = new Scanner();
+
+
+
+        TransitCalculator test = new TransitCalculator(scanner.nextLine(), scanner.nextLine());
         double[] a = test.getRidePrices();
         System.out.println(test.getBestFare());
       
