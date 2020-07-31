@@ -1,21 +1,20 @@
 import java.util.Scanner;
-package transitcalculator;
 
 public class TransitCalculator {
-    
+
     int numberOfDays;
     int numberOfRides;
     double[] taxes = {2.75, 33.00, 127.00};
     String[] packages = {"Pay-per-ride", "7-day Unlimited Rides", "30-day Unlimited Rides"};
-    
-    public TransitCalculator(int days, int rides){
-    if (days > 30)
+
+    public TransitCalculator(int numberOfDays, int numberOfRides){
+        if (numberOfDays > 30)
             System.out.println("The number of days exceds the limit!");
-    numberOfDays = days;
-    numberOfRides = rides;
+        this.numberOfDays = numberOfDays;
+        this.numberOfRides = numberOfRides;
     }
-    
-    
+
+
     //The method should return the overall price per ride of using the 7-day Unlimited option.
     public double unlimited7Price(){
         double temp = (double)numberOfDays / 7;
@@ -28,7 +27,7 @@ public class TransitCalculator {
         else
             return (taxes[1] * 4) / numberOfRides;
     }
-    
+
     //The method should return an array of the price per ride for the three fare options.
     public double[] getRidePrices(){
         double[] fare = new double[3];
@@ -37,35 +36,35 @@ public class TransitCalculator {
         fare[2] = taxes[2] / numberOfRides;
         return fare;
     }
-   
+
     public String getBestFare(){
-            
+
         double lowest = 1000;
         double[] temp = getRidePrices();
         String print = null;
-        
+
         for (int i=0;i<3;i++){
             if (temp[i] < lowest){
                 lowest = temp[i];
                 print = packages[i];
             }
         }
-        
+
         return "You should get the "+print+" option at $"+Math.round(lowest*100)/100.0+" per ride!";
     }
-   
+
     public static void main(String[] args) {
-       
-	Scanner scanner = new Scanner();
+
+        Scanner scanner = new Scanner(System.in);
 
 
-
-        TransitCalculator test = new TransitCalculator(scanner.nextLine(), scanner.nextLine());
-        double[] a = test.getRidePrices();
+        System.out.println("Type how many days and trips you plans do!");
+        TransitCalculator test = new TransitCalculator(Integer.parseInt(scanner.nextLine()), Integer.parseInt(scanner.nextLine()));
+        test.getRidePrices();
         System.out.println(test.getBestFare());
-      
+
     }
-    
+
 }
 /*
 Nice work! If you’d like to see the solution, move to the next task. If you’d like to extend your project on your own, you could consider the following:
