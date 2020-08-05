@@ -6,3 +6,4 @@ and number of trips the user plans do, the code was designed by me attending the
 
 Andrews Souza.
 https://www.codecademy.com/profiles/AndrewsSouza
+--
